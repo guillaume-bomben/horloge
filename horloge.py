@@ -12,6 +12,7 @@ def afficher_heure(heure_base, alarme):
     dernier_temps = time()
     affichage = pm_or_am()
     while True:
+        #Pour arreter la boucle infinie
         if msvcrt.kbhit():
             key = msvcrt.getch().decode('utf-8')
             if key.lower() == 'q':
@@ -20,14 +21,17 @@ def afficher_heure(heure_base, alarme):
         temps_actuel = time()
         temps_ecoule = temps_actuel - dernier_temps
         
+        #Formate l'Heurre
         if affichage == "AM":
             if heure > 12 :
                 heure -=12
             if heure_alarme >12:
                 heure_alarme -=12
+                
+        #Mise a jour de L'Heure
         if temps_ecoule >= 1:
-            seconde += 1  # Ajoute le temps écoulé en secondes
-            dernier_temps = temps_actuel  # Met à jour le dernier temps enregistré
+            seconde += 1  
+            dernier_temps = temps_actuel  
             if seconde >= 60:
                 minute += seconde // 60
                 seconde -= 60
@@ -37,6 +41,8 @@ def afficher_heure(heure_base, alarme):
                     if heure >= 24:
                         heure -= 24
             print(f"\r\033[K{heure:02d}:{minute:02d}:{seconde:02d}", end="", flush=True)
+            
+        #D'eclanchement de l'alarme
         if heure_alarme == heure and minute_alarme == minute and seconde_alarme == seconde:
             print(f"\nL'alarme a soner")
             
