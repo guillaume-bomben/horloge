@@ -13,7 +13,7 @@ def afficher_heure(heure_base, alarme):
     heure = heure_base[0] ; minute = heure_base[1] ; seconde = heure_base[2]
     heure_alarme = alarme[0] ; minute_alarme = alarme[1] ; seconde_alarme = alarme[2]
     dernier_temps = time()
-    affichage = pm_or_am()
+    affichage = pm_or_am().upper()
     while True:
         #Pour arreter la boucle infinie
         if msvcrt.kbhit():
