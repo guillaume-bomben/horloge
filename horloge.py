@@ -5,6 +5,9 @@ def pm_or_am():
     type = input("Entrez le type d'affichage de l'heure (AM/PM) :")
     return type
 
+def dalarme(heure_alarme,minute_alarme,seconde_alarme,heure,minute,seconde):
+    if heure_alarme == heure and minute_alarme == minute and seconde_alarme == seconde:
+        print(f"\nL'alarme a soner")
 
 def afficher_heure(heure_base, alarme):
     heure = heure_base[0] ; minute = heure_base[1] ; seconde = heure_base[2]
@@ -43,8 +46,7 @@ def afficher_heure(heure_base, alarme):
             print(f"\r\033[K{heure:02d}:{minute:02d}:{seconde:02d}", end="", flush=True)
             
         #D'eclanchement de l'alarme
-        if heure_alarme == heure and minute_alarme == minute and seconde_alarme == seconde:
-            print(f"\nL'alarme a soner")
+        dalarme(heure_alarme,minute_alarme,seconde_alarme,heure,minute,seconde)
             
         sleep(1)
 
