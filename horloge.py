@@ -19,7 +19,7 @@ def afficher_heure(heure_base, alarme):
         if msvcrt.kbhit():
             key = msvcrt.getch().decode('utf-8')
             if key.lower() == 'q':
-                print(" La touche 'q' a été enfoncée. Arrêt du programme.")
+                print("\nLa touche 'q' a été enfoncée. Arrêt du programme.")
                 break
         temps_actuel = time()
         temps_ecoule = temps_actuel - dernier_temps
@@ -47,7 +47,7 @@ def afficher_heure(heure_base, alarme):
             
         #D'eclanchement de l'alarme
         dalarme(heure_alarme,minute_alarme,seconde_alarme,heure,minute,seconde)
-            
+
         sleep(1)
 
 
